@@ -1,0 +1,5 @@
+select observationdate from "zrpgglue"."parquet" where screentemperature = (select max(screentemperature) from "zrpgglue"."parquet");
+
+select max(screentemperature) from "zrpgglue"."parquet";
+
+select region from "zrpgglue"."parquet" where screentemperature = (select max(screentemperature) from "zrpgglue"."parquet");
