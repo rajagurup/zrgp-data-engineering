@@ -1,7 +1,7 @@
 # zrgp-data-engineering
 Data engineering
 
-##Requirement-
+## Requirement-
 
 Convert the weather data into parquet format. Set the raw group to appropriate value you see fit for this data.
 The converted data should be queryable to answer the following question.
@@ -9,7 +9,7 @@ The converted data should be queryable to answer the following question.
 - What was the temperature on that day?
 - In which region was the hottest day?
 
-##High level design-
+## High level design-
 
 1. When a csv file is placed in s3 bucket, trigger an AWS lambda function
 2. Use AWS lambda function with boto3 and pandas to clean and prepare the data.
@@ -18,7 +18,7 @@ The converted data should be queryable to answer the following question.
 5. Use Athena to Query the data catalogue table to view the desired data.
 6. Generate a Tableau dashboard for non-technical users.
 
-##Detailed design-
+## Detailed design-
 
 1. Python, Pandas is used for data cleaning and data preparation. 
 2. Eye-balling the data shows that there the following operations needs to be done on the data set -
@@ -38,7 +38,7 @@ The converted data should be queryable to answer the following question.
 9. Now the result of the data analysis is fully hands-free. It will work for any number of files. The user only needs to click the url of the dashboard to gain insight.
 10. If the test result is a success, a terrform module can be created to automate the deployment process to the higher environments.
 
-##Assumptions-
+## Assumptions-
 
 1. The provider of the file can place the file in AWS s3 bucket. If this is not the case, we can create an interface to do this.
 2. The unused columns in the source data set is not expected to be used for any analysis. The Athena query executions is charged based of the volume of data read, so lesser the better.
